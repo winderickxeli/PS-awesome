@@ -4,8 +4,8 @@
 # Prereq's:
 # - txt file with e-mailadresses
 # - Edit <YOUR MS DOMAIN GOES HERE>
-# - PS Module MSOnline
-# - PS Module MicrsoftTeams
+# - PS Module MSOnline (Install-Module MSOnline)
+# - PS Module MicrsoftTeams (Install-Module MicrosoftTeams)
 
 Import-Module MSOnline
 Import-Module MicrosoftTeams
@@ -17,7 +17,7 @@ Write-Output "If you can't see the loginprompt, it's probably behind this window
 Connect-MicrosoftTeams
 Connect-MsolService
 
-## if Users.txt doesn't exist in current folder, give another file
+## if Users.txt doesn't exist in current folder, supply another file
 if(-not(Test-path .\users.txt)){
     Write-Output "users.txt niet gevonden"
         Function Get-FileName($initialDirectory)
