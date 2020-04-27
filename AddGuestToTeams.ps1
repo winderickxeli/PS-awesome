@@ -98,7 +98,7 @@ foreach ($email in $users)
     $name=$email.Remove($pos,$email.Length-$pos)
     $DN="Gast " + $name
     $OM=$email
-    New-MsolUser -UserPrincipalName $UPN -DisplayName $DN -FirstName "Guest" -LastName $name -AlternateEmailAddresses $email -Password $password -UserType "Guest"
+    New-MsolUser -UserPrincipalName $UPN -DisplayName $DN -FirstName "Guest" -LastName $name -AlternateEmailAddresses $email -Password $password -UserType "Guest" -ForceChangePassword true
     Write-Output "Created user $DN..."
     Start-Sleep -Seconds 4
     $userid=(Get-MsolUser -UserPrincipalName $UPN).objectid
